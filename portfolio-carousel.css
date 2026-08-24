@@ -6,6 +6,10 @@
 /* ── hero 基础布局：标题避开顶部导航，整体垂直居中 ── */
 .SectionHomepageHero {
   overflow: hidden;
+  /* 蒸汽波天空：粉→紫→深紫 */
+  background:
+    radial-gradient(120% 80% at 50% -10%, rgba(255, 230, 120, 0.25), transparent 55%),
+    linear-gradient(180deg, #ff71ce 0%, #b967ff 42%, #6a44b8 70%, #3a2a66 100%);
 }
 .SectionHomepageHero .portfolio-hero-inner {
   position: relative;
@@ -84,19 +88,21 @@
   width: clamp(150px, 20vw, 370px);
   height: clamp(84px, 11.25vw, 208px);
   display: block;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.05));
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  backdrop-filter: blur(28px) saturate(200%);
+  box-shadow: 0 24px 54px rgba(20, 8, 40, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(255, 255, 255, 0.08);
   cursor: pointer;
   backface-visibility: hidden;
   transform: translate(-50%, -50%) rotateY(calc(var(--i) * (360deg / 13))) translateZ(min(42vw, 780px));
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 .orbit-card:hover {
-  border-color: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 30px 72px rgba(0, 0, 0, 0.7);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 28px 64px rgba(20, 8, 40, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 .orbit-card img {
   display: block;
@@ -117,14 +123,16 @@
   align-items: center;
   justify-content: center;
   gap: 24px;
-  margin-top: 18px;
+  margin-top: 20px;
 }
 .orbit-arrow {
-  width: 46px;
-  height: 46px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.35);
-  background: rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05));
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  backdrop-filter: blur(24px) saturate(200%);
   color: #fff;
   font-size: 26px;
   line-height: 1;
@@ -132,11 +140,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 6px 20px rgba(20, 8, 40, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 .orbit-arrow:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: #fff;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.1));
+  border-color: rgba(255, 255, 255, 0.55);
   transform: scale(1.08);
 }
 .orbit-arrow:active {
@@ -144,119 +153,106 @@
 }
 .orbit-progress {
   width: clamp(120px, 24vw, 300px);
-  height: 4px;
+  height: 5px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  backdrop-filter: blur(10px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(20, 8, 40, 0.2);
 }
 .orbit-progress-fill {
   height: 100%;
   width: 0%;
   border-radius: 999px;
-  background: linear-gradient(90deg, #c8a46a, #7f9b84);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9);
 }
 
 
-/* ══ 纯液态玻璃 UI（无磨砂模糊 · 边缘弧度光影）══ */
-/* 液态玻璃通用边缘：斜向光泽 + 左上高光 + 右下内影，塑造液滴包边 */
-
-/* ── 顶部导航：液态玻璃药丸条 ── */
+/* ══ iOS 液态玻璃 UI（高模糊 + 高饱和 + 液面高光）══ */
+/* ── 顶部导航：液态玻璃 ── */
 #portfolio-navigation-frame {
-  background:
-    linear-gradient(135deg, rgba(140, 200, 255, 0.34) 0%, rgba(120, 180, 240, 0.08) 24%, transparent 48%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02)) !important;
-  border: 1px solid rgba(255, 255, 255, 0.50) !important;
-  border-radius: 28px !important;
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.28),
-    inset 2px 2px 6px rgba(255, 255, 255, 0.38),
-    inset -2px -3px 9px rgba(0, 0, 0, 0.24) !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.17), rgba(255, 255, 255, 0.06)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.38) !important;
+  border-radius: 999px !important;
+  -webkit-backdrop-filter: blur(30px) saturate(220%) !important;
+  backdrop-filter: blur(30px) saturate(220%) !important;
+  box-shadow: 0 10px 36px rgba(20, 8, 40, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.55), inset 0 -1px 0 rgba(255, 255, 255, 0.08) !important;
   height: 64px !important;
   top: 12px !important;
 }
 
-/* ── 左右按钮：液态玻璃圆钮 ── */
-.orbit-arrow {
-  background:
-    radial-gradient(120% 120% at 30% 20%, rgba(160, 215, 255, 0.4), rgba(130, 190, 245, 0.08) 45%, transparent 70%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.02));
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  box-shadow:
-    0 6px 18px rgba(0, 0, 0, 0.26),
-    inset 2px 2px 5px rgba(255, 255, 255, 0.42),
-    inset -2px -3px 7px rgba(0, 0, 0, 0.22);
-}
-.orbit-arrow:hover {
-  background:
-    radial-gradient(120% 120% at 30% 20%, rgba(180, 225, 255, 0.55), rgba(150, 205, 250, 0.14) 45%, transparent 70%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
-  border-color: rgba(255, 255, 255, 0.75);
-}
-
-/* ── 进度条：液态玻璃轨道 ── */
-.orbit-progress {
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  height: 6px;
-  box-shadow:
-    inset 1px 1px 3px rgba(255, 255, 255, 0.3),
-    inset -1px -2px 4px rgba(0, 0, 0, 0.25);
-}
-.orbit-progress-fill {
-  background: linear-gradient(90deg, #f0d29a, #a8cdb8);
-  border-radius: inherit;
-  box-shadow: 0 0 12px rgba(240, 210, 154, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.5);
-}
-
 /* ── 作品名字：液态玻璃胶囊 ── */
 .portfolio-ring-caption {
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.07) 24%, transparent 48%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02));
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.06));
+  border: 1px solid rgba(255, 255, 255, 0.38);
   border-radius: 999px;
-  padding: 12px 30px 14px;
-  box-shadow:
-    0 8px 26px rgba(0, 0, 0, 0.26),
-    inset 2px 2px 6px rgba(255, 255, 255, 0.40),
-    inset -2px -3px 9px rgba(0, 0, 0, 0.22);
+  padding: 14px 34px 16px;
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  backdrop-filter: blur(28px) saturate(200%);
+  box-shadow: 0 10px 32px rgba(20, 8, 40, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+  text-shadow: 0 1px 4px rgba(20, 8, 40, 0.35);
 }
 
-/* ── 画廊卡片：液态玻璃边框 ── */
-.orbit-card {
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.05) 26%, transparent 50%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  border-radius: 16px;
-  box-shadow:
-    0 24px 54px rgba(0, 0, 0, 0.4),
-    inset 2px 2px 6px rgba(255, 255, 255, 0.35),
-    inset -2px -3px 9px rgba(0, 0, 0, 0.2);
-}
-
-/* ── 关于我 / 联系方式：液态玻璃面板 ── */
+/* ── 关于我 / 联系方式：液态玻璃面板 + 内卡留白 ── */
 .portfolio-about,
 .portfolio-contact {
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 26%, transparent 50%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02)) !important;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 28px;
-  box-shadow:
-    0 16px 44px rgba(0, 0, 0, 0.28),
-    inset 2px 2px 6px rgba(255, 255, 255, 0.32),
-    inset -2px -3px 9px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.05)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 30px;
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  backdrop-filter: blur(28px) saturate(200%);
+  box-shadow: 0 18px 44px rgba(20, 8, 40, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(255, 255, 255, 0.08);
 }
 .portfolio-about > * > *,
 .portfolio-contact > * > * {
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.03) 30%, transparent 55%),
-    rgba(255, 255, 255, 0.04);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04));
   border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 18px;
-  box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.22), inset -1px -2px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  padding: 34px clamp(24px, 4vw, 44px) 38px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
+
+/* 卡片网格间距与分隔线收口 */
+.portfolio-about-stats,
+.portfolio-about-focus {
+  gap: 14px;
+}
+.portfolio-about-stats > div,
+.portfolio-about-focus > article {
+  border-right: 0 !important;
+  border-bottom: 0 !important;
+  border-radius: 18px;
+}
+.portfolio-about-stats,
+.portfolio-about-focus,
+.portfolio-contact-channels {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+.portfolio-about-intro,
+.portfolio-about-process,
+.portfolio-about-collaboration,
+.portfolio-contact-heading {
+  gap: clamp(24px, 5vw, 64px) !important;
+}
+.portfolio-about-intro h2,
+.portfolio-contact-heading h2 {
+  white-space: normal !important;
+}
+.portfolio-about-process ol {
+  display: grid;
+  gap: 12px;
+}
+.portfolio-about-process li {
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: 16px;
+  padding: 18px 22px;
+  background: rgba(255, 255, 255, 0.06);
+}
+.portfolio-about-process li:last-child { border-bottom: 1px solid rgba(255, 255, 255, 0.16) !important; }
 
 /* ── 当前作品名（居中显示在画廊下方）── */
 .portfolio-ring-caption {

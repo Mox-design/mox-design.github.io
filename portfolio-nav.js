@@ -214,8 +214,8 @@
     frame.srcdoc = `<!doctype html><html><head><meta name="color-scheme" content="light"><style>
       *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent}
       nav{height:100%;display:flex;align-items:center;justify-content:center;gap:64px;white-space:nowrap}
-      button{appearance:none;border:0;padding:8px 0;background:transparent;color:rgba(255,255,255,.58);font:600 clamp(30px,2.8vw,40px)/1 Arial,"PingFang SC",sans-serif;cursor:pointer;transition:color .2s ease}
-      button:hover,button:focus-visible,button:first-child{color:#fff}button:focus-visible{outline:2px solid #fff;outline-offset:5px}
+      button{appearance:none;border:0;padding:8px 0;background:transparent;color:rgba(46,24,92,.72);font:600 clamp(30px,2.8vw,40px)/1 Arial,"PingFang SC",sans-serif;cursor:pointer;transition:color .2s ease,text-shadow .2s ease}
+      button:hover,button:focus-visible,button:first-child{color:rgba(255,0,229,.95);text-shadow:0 0 14px rgba(255,0,229,.45)}button:focus-visible{outline:2px solid rgba(255,0,229,.8);outline-offset:5px}
       @media(max-width:700px){nav{justify-content:center;gap:24px;padding:0 12px}button{font-size:22px}}
     </style></head><body><nav aria-label="主导航">${labels.map((label, index) => `<button type="button" data-index="${index}">${label}</button>`).join("")}</nav><script>
       document.addEventListener('click',function(event){var button=event.target.closest('button');if(button)parent.postMessage({type:'portfolio-nav',index:Number(button.dataset.index)},'*')});
