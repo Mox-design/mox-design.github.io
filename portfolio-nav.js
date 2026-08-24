@@ -1,7 +1,7 @@
 (() => {
   const labels = ["作品集", "关于我", "联系方式"];
   const workNames = [
-    "淘气堡蹦蹦床紫色",
+    "淘气堡蹦蹦床",
     "淘气堡双人自行车",
     "王者枪神",
     "雪舞熊欢",
@@ -13,7 +13,10 @@
     "电玩帮帮龙",
     "电玩蹦蹦熊",
     "潮玩飞船",
-    "小狮王"
+    "小狮王",
+    "兔兔跑步机",
+    "雪球攻防拳击机",
+    "百变飞车轮胎车"
   ];
   const titleReplacements = new Map(workNames.map((name, index) => [
     `作品 ${String(index + 1).padStart(2, "0")}`,
@@ -53,10 +56,13 @@
     if (currentWork.includes("淘气堡滑雪")) return "/duoski/";
     if (currentWork.includes("淘气堡三人自行车")) return "/tricycle/";
     if (currentWork.includes("淘气堡双人自行车")) return "/duobike/";
-    if (currentWork.includes("淘气堡蹦蹦床紫色")) return "/duotrampoline/";
+    if (currentWork.includes("淘气堡蹦蹦床")) return "/duotrampoline/";
     if (currentWork.includes("小狮王")) return "/lionking/";
     if (currentWork.includes("雪舞熊欢")) return "/snowbear/";
     if (currentWork.includes("王者枪神")) return "/gunhero/";
+    if (currentWork.includes("兔兔跑步机")) return "/rabbitrun/";
+    if (currentWork.includes("雪球攻防拳击机")) return "/snowboxing/";
+    if (currentWork.includes("百变飞车轮胎车")) return "/tirecar/";
     return "";
   }
 

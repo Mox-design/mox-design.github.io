@@ -18,7 +18,7 @@
   let pauseUntil = 0;
 
   const works = [
-    { name: "淘气堡蹦蹦床紫色", route: "/duotrampoline/" },
+    { name: "淘气堡蹦蹦床", route: "/duotrampoline/" },
     { name: "淘气堡双人自行车", route: "/duobike/" },
     { name: "王者枪神",         route: "/gunhero/" },
     { name: "雪舞熊欢",         route: "/snowbear/" },
@@ -30,7 +30,10 @@
     { name: "电玩帮帮龙",       route: "/bobbi/" },
     { name: "电玩蹦蹦熊",       route: "/hopbear/" },
     { name: "潮玩飞船",         route: "/spaceship/" },
-    { name: "小狮王",           route: "/lionking/" }
+    { name: "小狮王",           route: "/lionking/" },
+    { name: "兔兔跑步机",       route: "/rabbitrun/" },
+    { name: "雪球攻防拳击机",   route: "/snowboxing/" },
+    { name: "百变飞车轮胎车",   route: "/tirecar/" }
   ];
 
   function render() {

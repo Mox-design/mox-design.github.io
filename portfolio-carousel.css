@@ -1,5 +1,5 @@
 /* MOXDESIGN 作品集 · 3D 环形画廊
- * 13 张 16:9 卡片在三维空间围成圆环（rotateY + translateZ），绕中轴旋转，
+ * 16 张 16:9 卡片在三维空间围成圆环（rotateY + translateZ），绕中轴旋转，
  * 透视纵深：前方卡片大、后方卡片小（backface 隐藏背面）。
  * 附：标题避开顶部导航、作品名居中、背景光晕、入场动效。 */
 
@@ -97,7 +97,7 @@
   box-shadow: 0 24px 54px rgba(20, 8, 40, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(255, 255, 255, 0.08);
   cursor: pointer;
   backface-visibility: hidden;
-  transform: translate(-50%, -50%) rotateY(calc(var(--i) * (360deg / 13))) translateZ(min(42vw, 780px));
+  transform: translate(-50%, -50%) rotateY(calc(var(--i) * (360deg / 16))) translateZ(min(45vw, 840px));
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 .orbit-card:hover {

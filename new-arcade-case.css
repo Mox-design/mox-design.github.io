@@ -1,0 +1,10 @@
+@import url('/bermuda/bermuda.css');
+:root{--case-dark:#13223a;--case-accent:#ff8a22;--case-pop:#ffe45c;--case-paper:#fffaf3}
+.hero-shade{background:linear-gradient(90deg,rgba(9,20,36,.72),rgba(9,20,36,.03) 60%),linear-gradient(0deg,rgba(9,20,36,.84),transparent 54%)}
+.hero .eyebrow{position:absolute;top:15%;left:6vw}.hero h1{top:24%;left:6vw;font-size:clamp(54px,5.4vw,88px);color:#fff;letter-spacing:.055em;text-shadow:0 4px 28px rgba(0,0,0,.35)}
+.overview{background:var(--case-paper)}.overview .section-label{color:var(--case-accent)}.design-story{background:var(--case-dark)}
+.feature-image{background:#e7e9ec}.feature-image>img{height:min(88vw,1040px);object-fit:contain}.feature-caption{border-left-color:var(--case-pop);background:color-mix(in srgb,var(--case-dark) 92%,transparent)}
+.gallery{background:color-mix(in srgb,var(--case-dark) 88%,#000)}.gallery figure,.gallery figure img{background:#e4e6e8}.gallery figure img{object-fit:contain}.gallery-wide img{aspect-ratio:1.65!important;object-fit:contain!important}
+.journey{background:var(--case-pop)}.journey .section-label{color:var(--case-dark)}.finale:after{background:linear-gradient(0deg,color-mix(in srgb,var(--case-dark) 96%,transparent),transparent 70%)}.finale p,.finale a span{color:var(--case-pop)}
+.rabbit-page{--case-dark:#3b3210;--case-accent:#ef7418;--case-pop:#d8f248;--case-paper:#fff9eb}.snow-page{--case-dark:#092f67;--case-accent:#08a8d1;--case-pop:#ff525d;--case-paper:#f4fbff}.tire-page{--case-dark:#102b55;--case-accent:#12bcae;--case-pop:#ffe357;--case-paper:#f5fbff}
+@media(max-width:760px){.hero{background:var(--case-dark)}.hero-image{height:72%;object-position:50% center}.hero-shade{background:linear-gradient(0deg,var(--case-dark) 0 28%,transparent 65%)}.hero h1{top:74%;left:20px;font-size:clamp(34px,9vw,42px)}.hero .eyebrow{top:70%;left:20px}.hero .hero-foot{position:absolute;right:20px;bottom:24px;left:20px;width:auto;gap:18px}.hero-foot p{font-size:14px}.feature-image>img{height:76svh}.gallery figure img,.gallery-wide img{aspect-ratio:1.1!important;object-fit:contain!important}}
