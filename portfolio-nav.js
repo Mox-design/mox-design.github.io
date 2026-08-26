@@ -219,9 +219,11 @@
     });
     frame.srcdoc = `<!doctype html><html><head><meta name="color-scheme" content="light"><style>
       *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent}
-      nav{height:100%;display:flex;align-items:center;justify-content:center;gap:64px;white-space:nowrap}
-      button{appearance:none;border:0;padding:8px 0;background:transparent;color:rgba(46,24,92,.72);font:600 clamp(30px,2.8vw,40px)/1 Arial,"PingFang SC",sans-serif;cursor:pointer;transition:color .2s ease,text-shadow .2s ease}
-      button:hover,button:focus-visible,button:first-child{color:rgba(255,0,229,.95);text-shadow:0 0 14px rgba(255,0,229,.45)}button:focus-visible{outline:2px solid rgba(255,0,229,.8);outline-offset:5px}
+      nav{position:relative;isolation:isolate;height:100%;display:flex;align-items:center;justify-content:center;gap:64px;overflow:hidden;border-radius:999px;white-space:nowrap}
+      nav::before{content:"";position:absolute;z-index:-1;inset:0;background:radial-gradient(48% 150% at 5% 50%,rgba(81,229,255,.075),transparent 72%),radial-gradient(40% 150% at 54% 50%,rgba(255,226,116,.035),transparent 74%),radial-gradient(48% 150% at 98% 50%,rgba(255,91,213,.06),transparent 72%);mix-blend-mode:screen;pointer-events:none}
+      nav::after{content:"";position:absolute;z-index:2;inset:1px;padding:1px;border-radius:inherit;background:linear-gradient(98deg,rgba(77,229,255,.88),rgba(255,255,255,.9) 28%,rgba(255,226,113,.78) 53%,rgba(255,91,213,.82) 76%,rgba(181,137,255,.72));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.72;pointer-events:none}
+      button{position:relative;z-index:1;appearance:none;border:0;padding:8px 0;background:transparent;color:rgba(50,25,91,.78);font:600 clamp(30px,2.8vw,40px)/1 Arial,"PingFang SC",sans-serif;cursor:pointer;transition:color .2s ease,text-shadow .2s ease}
+      button:hover,button:focus-visible,button:first-child{color:rgba(245,0,218,.96);text-shadow:0 0 14px rgba(255,255,255,.42),0 0 18px rgba(240,0,218,.24)}button:focus-visible{outline:2px solid rgba(255,255,255,.8);outline-offset:5px}
       @media(max-width:700px){nav{justify-content:center;gap:24px;padding:0 12px}button{font-size:22px}}
     </style></head><body><nav aria-label="主导航">${labels.map((label, index) => `<button type="button" data-index="${index}">${label}</button>`).join("")}</nav><script>
       document.addEventListener('click',function(event){var button=event.target.closest('button');if(button)parent.postMessage({type:'portfolio-nav',index:Number(button.dataset.index)},'*')});

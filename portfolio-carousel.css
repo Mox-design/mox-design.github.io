@@ -318,3 +318,207 @@
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* ══ Apple 式光谱折射玻璃系统 ══
+ * 中性透明底材负责让背景穿透；青、品红、暖金只做边缘色散和曲面焦散，
+ * 避免玻璃被当前页面的粉紫色染成一块单色塑料。 */
+:root {
+  --mox-glass-surface:
+    radial-gradient(115% 210% at -8% -52%, rgba(116, 234, 255, .42) 0%, rgba(116, 234, 255, .15) 31%, transparent 56%),
+    radial-gradient(100% 190% at 112% 138%, rgba(255, 108, 218, .35) 0%, rgba(255, 108, 218, .12) 34%, transparent 57%),
+    radial-gradient(72% 135% at 58% 118%, rgba(255, 222, 111, .28) 0%, transparent 51%),
+    linear-gradient(112deg, rgba(255, 255, 255, .22) 0%, rgba(255, 255, 255, .045) 25%, rgba(118, 221, 255, .12) 41%, rgba(255, 244, 185, .10) 57%, rgba(255, 124, 219, .13) 77%, rgba(255, 255, 255, .18) 100%),
+    rgba(245, 249, 255, .035);
+  --mox-glass-surface-hover:
+    radial-gradient(115% 210% at -8% -52%, rgba(157, 239, 255, .38) 0%, rgba(157, 239, 255, .14) 31%, transparent 56%),
+    radial-gradient(100% 190% at 112% 138%, rgba(255, 142, 226, .31) 0%, rgba(255, 142, 226, .11) 34%, transparent 57%),
+    radial-gradient(72% 135% at 58% 118%, rgba(255, 231, 155, .22) 0%, transparent 51%),
+    linear-gradient(112deg, rgba(255, 255, 255, .28) 0%, rgba(255, 255, 255, .08) 27%, rgba(139, 218, 255, .10) 44%, rgba(255, 255, 255, .05) 60%, rgba(255, 184, 230, .11) 80%, rgba(255, 255, 255, .22) 100%),
+    rgba(255, 255, 255, .065);
+  --mox-glass-border: rgba(255, 255, 255, .46);
+  --mox-glass-filter: blur(24px) saturate(185%) brightness(1.08) contrast(1.04);
+  --mox-glass-shadow:
+    0 18px 50px rgba(24, 8, 54, .28),
+    0 3px 12px rgba(25, 10, 58, .16),
+    -3px 0 12px rgba(84, 226, 255, .14),
+    3px 0 12px rgba(255, 94, 213, .13),
+    inset 0 1.5px 0 rgba(255, 255, 255, .78),
+    inset 2.5px 0 0 rgba(91, 229, 255, .52),
+    inset -2.5px 0 0 rgba(255, 91, 211, .46),
+    inset 0 -2px 0 rgba(255, 220, 103, .34);
+}
+
+/* 所有可交互玻璃面使用同一光学配方。 */
+#portfolio-navigation-frame,
+.portfolio-ring-caption,
+.orbit-arrow,
+.portfolio-about > * > *,
+.portfolio-contact > * > *,
+.portfolio-about-stats > div,
+.portfolio-about-focus > article,
+.portfolio-about-process li,
+.portfolio-contact-channel,
+.portfolio-case-back {
+  position: relative;
+  background: var(--mox-glass-surface) !important;
+  background-blend-mode: screen, screen, screen, normal, normal;
+  border: 1px solid var(--mox-glass-border) !important;
+  -webkit-backdrop-filter: var(--mox-glass-filter) !important;
+  backdrop-filter: var(--mox-glass-filter) !important;
+  box-shadow: var(--mox-glass-shadow) !important;
+}
+
+/* 顶部焦散线：细窄的青→白→金→品红光谱，模拟曲面玻璃对点光源的拉伸。 */
+.portfolio-ring-caption::before,
+.portfolio-about > * > *::before,
+.portfolio-contact > * > *::before,
+.portfolio-about-stats > div::before,
+.portfolio-about-focus > article::before,
+.portfolio-about-process li::before,
+.portfolio-contact-channel::before,
+.portfolio-case-back::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 8%;
+  width: 84%;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(91, 229, 255, .88) 16%, rgba(255, 255, 255, .96) 39%, rgba(255, 225, 112, .85) 62%, rgba(255, 92, 213, .82) 84%, transparent);
+  filter: blur(.25px);
+  opacity: .76;
+  pointer-events: none;
+}
+
+/* 圆形控件只用环形色散边缘，避免顶部焦散线溢出成小横线。 */
+.orbit-arrow::before {
+  content: none !important;
+}
+
+#portfolio-navigation-frame {
+  overflow: hidden !important;
+  background:
+    radial-gradient(92% 170% at -6% -45%, rgba(91, 226, 255, .085), transparent 58%),
+    radial-gradient(88% 165% at 108% 135%, rgba(255, 98, 215, .07), transparent 60%),
+    linear-gradient(112deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .006) 38%, rgba(255, 230, 151, .018) 65%, rgba(255, 255, 255, .038)),
+    transparent !important;
+  background-blend-mode: normal !important;
+  border-radius: 999px !important;
+  -webkit-backdrop-filter: blur(9px) saturate(130%) brightness(1.02) contrast(1.015) !important;
+  backdrop-filter: blur(9px) saturate(130%) brightness(1.02) contrast(1.015) !important;
+  height: 64px !important;
+  top: 12px !important;
+}
+
+.portfolio-ring-caption,
+.orbit-arrow,
+.portfolio-contact-channel,
+.portfolio-case-back {
+  transition: background .28s ease, border-color .28s ease, box-shadow .28s ease, transform .28s ease !important;
+}
+
+.portfolio-ring-caption:hover,
+.orbit-arrow:hover,
+.portfolio-contact-channel:hover,
+.portfolio-case-back:hover,
+.portfolio-case-back:focus-visible {
+  background: var(--mox-glass-surface-hover) !important;
+  border-color: rgba(255, 255, 255, .68) !important;
+  box-shadow:
+    0 22px 58px rgba(24, 8, 54, .32),
+    0 4px 14px rgba(25, 10, 58, .18),
+    inset 0 1.5px 0 rgba(255, 255, 255, .88),
+    inset 2px 0 0 rgba(124, 225, 255, .29),
+    inset -2px 0 0 rgba(255, 137, 224, .27),
+    inset 0 -1.5px 0 rgba(255, 221, 137, .18) !important;
+}
+
+/* 图片卡也沿用同样的色散边缘，不用额外色底污染作品图。 */
+.orbit-card {
+  border-color: var(--mox-glass-border);
+  box-shadow: var(--mox-glass-shadow);
+}
+.orbit-card:hover {
+  border-color: rgba(255, 255, 255, .72);
+  box-shadow:
+    0 28px 64px rgba(20, 8, 40, .42),
+    inset 0 1.5px 0 rgba(255, 255, 255, .86),
+    inset 2px 0 0 rgba(124, 225, 255, .28),
+    inset -2px 0 0 rgba(255, 137, 224, .25);
+}
+
+.orbit-progress {
+  background:
+    linear-gradient(90deg, rgba(139, 224, 255, .20), rgba(255, 255, 255, .10) 36%, rgba(255, 224, 155, .16) 64%, rgba(255, 150, 226, .18)),
+    rgba(255, 255, 255, .055);
+  border-color: rgba(255, 255, 255, .40);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  backdrop-filter: blur(18px) saturate(180%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .62),
+    inset 1px 0 0 rgba(123, 224, 255, .24),
+    inset -1px 0 0 rgba(255, 142, 225, .22),
+    0 5px 18px rgba(24, 8, 54, .18);
+}
+.orbit-progress-fill {
+  background: linear-gradient(90deg, #a9edff 0%, #ffffff 33%, #fff2bd 61%, #ffc4ee 82%, #d7c7ff 100%);
+  box-shadow: 0 0 12px rgba(255, 255, 255, .55), inset 0 1px 0 #fff;
+}
+
+/* 大区域作为折射背景，内部信息块才是玻璃 UI。 */
+.portfolio-about {
+  background:
+    radial-gradient(72% 58% at 12% 12%, rgba(59, 154, 255, .48), transparent 62%),
+    radial-gradient(62% 64% at 92% 72%, rgba(173, 73, 255, .43), transparent 64%),
+    radial-gradient(48% 42% at 56% 96%, rgba(255, 93, 190, .22), transparent 70%),
+    linear-gradient(145deg, #0c1636, #163f78 54%, #142051) !important;
+}
+.portfolio-contact {
+  background:
+    radial-gradient(70% 62% at 92% 10%, rgba(84, 211, 255, .43), transparent 62%),
+    radial-gradient(60% 68% at 8% 84%, rgba(186, 80, 255, .40), transparent 65%),
+    radial-gradient(48% 42% at 54% 54%, rgba(255, 185, 90, .14), transparent 70%),
+    linear-gradient(145deg, #102c5e, #173d79 50%, #1a2458) !important;
+}
+
+.portfolio-about > * > *,
+.portfolio-contact > * > * {
+  position: relative;
+  isolation: isolate;
+}
+.portfolio-contact-channel {
+  color: #fff;
+  border-radius: 22px !important;
+}
+.portfolio-contact-channel > div {
+  border-radius: 14px;
+  box-shadow:
+    0 8px 24px rgba(8, 18, 42, .19),
+    0 0 0 1px rgba(255, 255, 255, .48),
+    inset 0 1px 0 rgba(255, 255, 255, .85);
+}
+.portfolio-contact-channel figcaption {
+  color: #fff;
+  border-top-color: rgba(255, 255, 255, .24);
+}
+.portfolio-contact-channel figcaption span { color: #aeefff; }
+.portfolio-contact-channel figcaption small,
+.portfolio-contact-channel figcaption em { color: rgba(255, 255, 255, .68); }
+
+@media (prefers-reduced-transparency: reduce) {
+  #portfolio-navigation-frame,
+  .portfolio-ring-caption,
+  .orbit-arrow,
+  .portfolio-about > * > *,
+  .portfolio-contact > * > *,
+  .portfolio-about-stats > div,
+  .portfolio-about-focus > article,
+  .portfolio-about-process li,
+  .portfolio-contact-channel,
+  .portfolio-case-back {
+    background-color: rgba(35, 30, 72, .88) !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+}
