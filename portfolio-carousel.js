@@ -11,7 +11,7 @@
   if (!ring || cards.length < 2) return;
 
   const STEP = 360 / cards.length;   // 每张卡片的角度间隔
-  const DEG_PER_SEC = 360 / 22;      // 22 秒转一圈
+  const DEG_PER_SEC = 360 / 36;      // 36 秒转一圈，给每个作品更充足的停留时间
   const SMOOTH = 0.14;               // 每帧逼近系数（越小越丝滑）
   let rot = 0;                       // 当前显示角度
   let rotTarget = 0;                 // 目标角度

@@ -85,8 +85,8 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: clamp(150px, 20vw, 370px);
-  height: clamp(84px, 11.25vw, 208px);
+  width: clamp(137px, 19vw, 315px);
+  height: clamp(77px, 10.6875vw, 177px);
   display: block;
   border-radius: 16px;
   overflow: hidden;
@@ -97,7 +97,7 @@
   box-shadow: 0 24px 54px rgba(20, 8, 40, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(255, 255, 255, 0.08);
   cursor: pointer;
   backface-visibility: hidden;
-  transform: translate(-50%, -50%) rotateY(calc(var(--i) * (360deg / 16))) translateZ(min(45vw, 840px));
+  transform: translate(-50%, -50%) rotateY(calc(var(--i) * (360deg / 16))) translateZ(clamp(420px, 52vw, 900px));
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 .orbit-card:hover {
