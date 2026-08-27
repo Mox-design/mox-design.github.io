@@ -7,3 +7,119 @@ body{background:var(--ink)}
 .design-story{background:#071d36}.story-number{color:var(--acid)}.gallery{background:#081526}.gallery figure{background:#edf0f2}.gallery figure img{object-fit:contain;background:#edf0f2}.gallery .portrait-stage img{aspect-ratio:1.5!important;object-fit:contain!important}.journey{background:var(--acid)}.journey .section-label{color:#075b72}.finale:after{background:linear-gradient(0deg,rgba(3,19,38,.96),rgba(3,19,38,.04) 72%)}.finale p,.finale a span{color:var(--acid)}
 .site-header nav,.back-link,.hero-foot p,.lead,.body-copy,.specs,.feature-caption,.story-grid h3,.story-grid p,.journey-kicker,.journey li strong{letter-spacing:.04em}.design-story h2,.gallery h2,.finale h2{line-height:1;letter-spacing:.045em}.specs dd,.gallery figcaption{line-height:1.55}
 @media(max-width:760px){.hero{min-height:100svh;background:#06172b}.hero-image{height:69%;object-position:61% center}.hero-shade{background:linear-gradient(0deg,rgba(6,23,43,1) 0 32%,rgba(6,23,43,.18) 61%,rgba(6,23,43,.03) 100%)}.hero .eyebrow{top:70%;left:20px;font-size:9px;letter-spacing:.14em}.hero h1{top:74%;left:20px;font-size:clamp(42px,11.5vw,49px);line-height:1;letter-spacing:.055em}.hero .hero-foot{position:absolute;right:20px;bottom:24px;left:20px;width:auto;gap:18px}.hero-foot p{font-size:13px;line-height:1.65}.scroll-link{font-size:11px}.lead{line-height:1.18}.feature-image>img{height:78svh}.design-story h2,.gallery h2,.finale h2{line-height:1.06;letter-spacing:.035em}.gallery figure img,.gallery-wide img,.gallery .portrait-stage img{aspect-ratio:1.06!important;object-fit:contain!important}.finale>img{object-position:62% center}}
+
+/* Snowbear case study — scoped to avoid changing the detail pages that import this theme. */
+.snowbear-page{--snow-blue:#34d6e8;--snow-yellow:#ffcf3f;--snow-paper:#f4fbff;--snow-ink:#06172b;--snow-muted:#9fb2c4}
+.snowbear-page .site-header nav{gap:34px}
+.snowbear-page .hero-foot p{font-size:17px}
+.snowbear-page .case-intro{padding-top:150px;padding-bottom:150px}
+.snowbear-page .case-intro .lead{max-width:980px}
+.snowbear-page .case-intro .body-copy{font-size:17px}
+
+.snowbear-page .challenge-map,.snowbear-page .decision-section,.snowbear-page .validation-section,.snowbear-page .reflection-section{padding:130px 6vw}
+.snowbear-page .challenge-map{background:#071d36;color:var(--snow-paper)}
+.snowbear-page .challenge-heading,.snowbear-page .decision-heading,.snowbear-page .validation-heading{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(280px,.8fr);gap:8vw;align-items:end;margin:72px 0 84px}
+.snowbear-page .challenge-heading h2,.snowbear-page .decision-heading h2,.snowbear-page .validation-heading h2,.snowbear-page .insight-copy h2{margin:0;font-size:clamp(48px,6.3vw,96px);line-height:1.05;letter-spacing:.035em}
+.snowbear-page .challenge-heading>p,.snowbear-page .decision-heading>p,.snowbear-page .validation-heading>p{margin:0;color:var(--snow-muted);font-size:15px;line-height:1.9}
+.snowbear-page .tension-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(232,249,255,.25);border-bottom:1px solid rgba(232,249,255,.25)}
+.snowbear-page .tension-grid article{min-height:350px;padding:28px 3.4vw 30px 0;border-right:1px solid rgba(232,249,255,.25);display:flex;flex-direction:column}
+.snowbear-page .tension-grid article+article{padding-left:3.4vw}
+.snowbear-page .tension-grid article:last-child{border-right:0}
+.snowbear-page .tension-grid span,.snowbear-page .decision-core span,.snowbear-page .decision-list small,.snowbear-page .reflection-note span{color:var(--snow-yellow);font-size:10px;font-weight:700;letter-spacing:.16em}
+.snowbear-page .tension-grid h3{margin:76px 0 18px;font-size:clamp(30px,3vw,46px)}
+.snowbear-page .tension-grid p{max-width:330px;margin:0;color:var(--snow-muted);font-size:14px;line-height:1.85}
+.snowbear-page .tension-grid strong{margin-top:auto;padding-top:36px;font-size:13px;letter-spacing:.06em}
+
+.snowbear-page .insight-section{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(420px,.92fr);min-height:920px;background:var(--snow-paper);color:var(--snow-ink)}
+.snowbear-page .insight-visual{position:relative;min-height:760px;overflow:hidden;background:#e9edf0}
+.snowbear-page .insight-visual img{width:100%;height:100%;object-fit:contain}
+.snowbear-page .insight-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,23,43,.54),transparent 42%);pointer-events:none}
+.snowbear-page .insight-visual>span{position:absolute;z-index:1;right:34px;bottom:34px;writing-mode:vertical-rl;color:#fff;font-size:10px;letter-spacing:.18em}
+.snowbear-page .insight-copy{display:flex;flex-direction:column;justify-content:center;padding:90px 7vw}
+.snowbear-page .insight-copy .section-label{color:#087f9f}
+.snowbear-page .insight-kicker{margin:110px 0 24px;color:#087f9f;font-size:12px;font-weight:700;letter-spacing:.15em}
+.snowbear-page .insight-copy h2{font-size:clamp(42px,4.8vw,76px)}
+.snowbear-page .insight-copy>p:last-child{max-width:620px;margin:50px 0 0;color:#405263;font-size:16px;line-height:2}
+
+.snowbear-page .decision-section{background:#081526}
+.snowbear-page .decision-heading{margin-bottom:58px}
+.snowbear-page .decision-list{border-top:1px solid rgba(232,249,255,.24)}
+.snowbear-page .decision-list article{display:grid;grid-template-columns:70px minmax(210px,.8fr) minmax(260px,1fr) minmax(260px,1fr);gap:3vw;padding:42px 0 46px;border-bottom:1px solid rgba(232,249,255,.24)}
+.snowbear-page .decision-no{color:var(--snow-yellow);font-size:12px;letter-spacing:.14em}
+.snowbear-page .decision-core h3{margin:16px 0 0;font-size:clamp(26px,2.5vw,38px);line-height:1.2}
+.snowbear-page .decision-reason p,.snowbear-page .decision-result p{margin:14px 0 0;color:var(--snow-muted);font-size:14px;line-height:1.85}
+.snowbear-page .decision-result{padding-left:3vw;border-left:1px solid rgba(232,249,255,.2)}
+
+.snowbear-page .gallery{padding-top:140px}
+.snowbear-page .gallery-heading{display:grid;grid-template-columns:1.35fr .65fr;gap:5vw;align-items:end;margin-bottom:72px}
+.snowbear-page .gallery-heading .section-label{grid-column:1/-1}
+.snowbear-page .gallery-heading h2{margin:45px 0 0}
+.snowbear-page .gallery-intro{max-width:390px;margin:0 0 12px;color:var(--snow-muted);font-size:15px;line-height:1.9}
+.snowbear-page .gallery figcaption{display:flex;justify-content:space-between;gap:20px;align-items:baseline}
+.snowbear-page .gallery figcaption b{color:var(--snow-yellow);font-size:12px}
+.snowbear-page .gallery figcaption span{text-align:right}
+
+.snowbear-page .experience-loop .loop-heading{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:end;margin:70px 0 40px}
+.snowbear-page .experience-loop .journey-kicker{margin:0;font-size:clamp(28px,3.5vw,54px);font-weight:700;line-height:1.25}
+.snowbear-page .experience-loop .loop-heading>p:last-child{max-width:420px;margin:0 0 8px;font-size:14px;line-height:1.8}
+
+.snowbear-page .validation-section{background:var(--snow-paper);color:var(--snow-ink)}
+.snowbear-page .validation-section .section-label{color:#087f9f}
+.snowbear-page .validation-heading>p{color:#405263}
+.snowbear-page .check-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#bfd0dc;border:1px solid #bfd0dc}
+.snowbear-page .check-grid article{min-height:300px;padding:34px;background:#edf7fc}
+.snowbear-page .check-grid span{color:#087f9f;font-size:11px;font-weight:700;letter-spacing:.15em}
+.snowbear-page .check-grid h3{margin:100px 0 18px;font-size:24px;line-height:1.35}
+.snowbear-page .check-grid p{margin:0;color:#526779;font-size:14px;line-height:1.8}
+
+.snowbear-page .reflection-section{display:grid;grid-template-columns:1fr 2fr;gap:4vw 7vw;background:#06172b}
+.snowbear-page .reflection-section .section-label{grid-column:1/-1}
+.snowbear-page .reflection-section blockquote{grid-column:1/-1;margin:70px 0 105px;font-size:clamp(44px,6.2vw,94px);font-weight:700;line-height:1.12;letter-spacing:.025em}
+.snowbear-page .reflection-note{grid-column:2;display:grid;grid-template-columns:120px 1fr;gap:3vw;padding-top:26px;border-top:1px solid rgba(232,249,255,.25)}
+.snowbear-page .reflection-note p{margin:0;color:var(--snow-muted);font-size:15px;line-height:1.95}
+.snowbear-page .finale{min-height:100svh}
+.snowbear-page .finale h2{font-size:clamp(52px,7vw,110px)}
+
+@media(max-width:980px){
+  .snowbear-page .site-header nav{gap:20px;font-size:14px}
+  .snowbear-page .challenge-heading,.snowbear-page .decision-heading,.snowbear-page .validation-heading{grid-template-columns:1fr;gap:34px}
+  .snowbear-page .insight-section{grid-template-columns:1fr}
+  .snowbear-page .insight-visual{min-height:75svh}
+  .snowbear-page .decision-list article{grid-template-columns:45px 1fr 1fr}
+  .snowbear-page .decision-result{grid-column:2/-1;padding:28px 0 0;border-top:1px solid rgba(232,249,255,.18);border-left:0}
+}
+
+@media(max-width:760px){
+  .snowbear-page .hero .hero-foot p{font-size:13px}
+  .snowbear-page .case-intro{padding-top:92px;padding-bottom:92px}
+  .snowbear-page .case-intro .body-copy{font-size:14px}
+  .snowbear-page .challenge-map,.snowbear-page .decision-section,.snowbear-page .validation-section,.snowbear-page .reflection-section{padding:86px 20px}
+  .snowbear-page .challenge-heading,.snowbear-page .decision-heading,.snowbear-page .validation-heading{margin:52px 0 58px}
+  .snowbear-page .challenge-heading h2,.snowbear-page .decision-heading h2,.snowbear-page .validation-heading h2,.snowbear-page .insight-copy h2{font-size:clamp(38px,11vw,50px)}
+  .snowbear-page .tension-grid{grid-template-columns:1fr}
+  .snowbear-page .tension-grid article,.snowbear-page .tension-grid article+article{min-height:260px;padding:26px 0;border-right:0;border-bottom:1px solid rgba(232,249,255,.25)}
+  .snowbear-page .tension-grid article:last-child{border-bottom:0}
+  .snowbear-page .tension-grid h3{margin:48px 0 14px}
+  .snowbear-page .insight-section{display:block;min-height:0}
+  .snowbear-page .insight-visual{min-height:70svh}
+  .snowbear-page .insight-copy{padding:82px 20px 90px}
+  .snowbear-page .insight-kicker{margin-top:72px}
+  .snowbear-page .insight-copy>p:last-child{font-size:14px}
+  .snowbear-page .decision-list article{display:grid;grid-template-columns:40px 1fr;gap:0 18px;padding:34px 0}
+  .snowbear-page .decision-reason,.snowbear-page .decision-result{grid-column:2;margin-top:30px}
+  .snowbear-page .decision-result{padding-top:26px}
+  .snowbear-page .gallery{padding-top:92px}
+  .snowbear-page .gallery-heading{display:block;margin-bottom:52px}
+  .snowbear-page .gallery-heading h2{margin:42px 0 30px}
+  .snowbear-page .gallery figcaption{display:block}
+  .snowbear-page .gallery figcaption b,.snowbear-page .gallery figcaption span{display:block;text-align:left}
+  .snowbear-page .gallery figcaption span{margin-top:5px}
+  .snowbear-page .experience-loop .loop-heading{grid-template-columns:1fr;gap:28px;margin:50px 0 34px}
+  .snowbear-page .check-grid{grid-template-columns:1fr}
+  .snowbear-page .check-grid article{min-height:240px;padding:28px}
+  .snowbear-page .check-grid h3{margin-top:66px}
+  .snowbear-page .reflection-section{display:block}
+  .snowbear-page .reflection-section blockquote{margin:60px 0 80px;font-size:clamp(38px,11vw,50px)}
+  .snowbear-page .reflection-note{display:block}
+  .snowbear-page .reflection-note p{margin-top:24px;font-size:14px}
+}
