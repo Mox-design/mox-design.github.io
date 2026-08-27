@@ -11,7 +11,9 @@
   if (!ring || cards.length < 2) return;
 
   const STEP = 360 / cards.length;   // 每张卡片的角度间隔
-  const DEG_PER_SEC = 360 / 36;      // 36 秒转一圈，给每个作品更充足的停留时间
+  const compactScreen = window.matchMedia("(max-width: 700px)").matches;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const DEG_PER_SEC = compactScreen || reduceMotion ? 0 : 360 / 36;
   const SMOOTH = 0.14;               // 每帧逼近系数（越小越丝滑）
   let rot = 0;                       // 当前显示角度
   let rotTarget = 0;                 // 目标角度
@@ -62,6 +64,24 @@
 
   if (prevBtn) prevBtn.addEventListener("click", () => step(-1));
   if (nextBtn) nextBtn.addEventListener("click", () => step(1));
+
+  // On phones the ring stays still until the visitor swipes or uses the arrows.
+  // This keeps the active card fully visible and avoids motion while reading.
+  if (compactScreen) {
+    let swipeStart = null;
+    ring.addEventListener("pointerdown", (event) => {
+      swipeStart = { x: event.clientX, y: event.clientY };
+    });
+    ring.addEventListener("pointerup", (event) => {
+      if (!swipeStart) return;
+      const dx = event.clientX - swipeStart.x;
+      const dy = event.clientY - swipeStart.y;
+      swipeStart = null;
+      if (Math.abs(dx) < 42 || Math.abs(dx) <= Math.abs(dy)) return;
+      step(dx < 0 ? 1 : -1);
+    });
+    ring.addEventListener("pointercancel", () => { swipeStart = null; });
+  }
 
   caption.addEventListener("click", () => {
     const route = caption.dataset.route;

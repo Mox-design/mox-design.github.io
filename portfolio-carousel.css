@@ -46,6 +46,62 @@
   .SectionHomepageHero .portfolio-hero-inner { padding: 110px 20px 32px; }
 }
 
+/* Phone layout: keep the complete active card, controls and caption in one viewport. */
+@media (max-width: 700px) {
+  html,body{width:100%;max-width:100%;overflow-x:clip}
+  .SectionHomepageHero{min-height:100svh;overflow:hidden}
+  .SectionHomepageHero .portfolio-hero-inner{
+    box-sizing:border-box;
+    height:100svh;
+    min-height:620px;
+    padding:128px max(12px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));
+  }
+  .orbit-stage{
+    flex:1;
+    width:100%;
+    height:auto;
+    min-height:0;
+    justify-content:center;
+  }
+  .orbit-ring-wrap{
+    flex:0 1 390px;
+    width:100%;
+    height:min(46svh,390px);
+    min-height:280px;
+    perspective:920px;
+    perspective-origin:50% 50%;
+  }
+  .orbit-card{
+    width:clamp(176px,58vw,236px);
+    height:clamp(99px,32.625vw,133px);
+    border-radius:12px;
+    transform:translate(-50%,-50%) rotateY(calc(var(--i) * (360deg / 16))) translateZ(clamp(150px,44vw,182px));
+  }
+  .orbit-controls{gap:14px;margin-top:8px}
+  .orbit-arrow{width:44px;height:44px;font-size:24px;touch-action:manipulation}
+  .orbit-progress{width:min(42vw,156px)}
+  .portfolio-ring-caption{
+    box-sizing:border-box;
+    width:auto;
+    max-width:calc(100vw - 32px);
+    margin-top:12px;
+    padding:10px 20px 12px;
+    border-radius:22px;
+    font-size:clamp(16px,4.8vw,20px);
+    line-height:1.35;
+    white-space:normal;
+    text-wrap:balance;
+  }
+}
+
+@media (max-width: 360px), (max-height: 680px) {
+  .SectionHomepageHero .portfolio-hero-inner{min-height:560px;padding-top:118px;padding-bottom:10px}
+  .orbit-ring-wrap{height:min(42svh,320px);min-height:245px}
+  .orbit-card{width:clamp(158px,54vw,196px);height:clamp(89px,30.375vw,110px);transform:translate(-50%,-50%) rotateY(calc(var(--i) * (360deg / 16))) translateZ(clamp(132px,41vw,156px))}
+  .orbit-controls{margin-top:4px}.orbit-arrow{width:40px;height:40px}
+  .portfolio-ring-caption{margin-top:8px;padding-block:8px 10px}
+}
+
 /* ── 3D 环形画廊 ── */
 .orbit-stage {
   position: relative;
@@ -521,4 +577,19 @@
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
   }
+}
+
+/* Final phone overrides must follow the glass navigation rules above. */
+@media (max-width:700px){
+  #portfolio-navigation-frame{
+    top:64px!important;
+    width:calc(100% - 24px)!important;
+    max-width:430px!important;
+    height:54px!important;
+  }
+  .orbit-ring{touch-action:pan-y}
+}
+@media (max-width:360px),(max-height:680px){
+  .portfolio-ring-caption{margin-top:4px!important;padding:7px 16px!important}
+  .portfolio-ring-caption::after{display:none}
 }
