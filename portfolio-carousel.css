@@ -72,8 +72,8 @@
     perspective-origin:50% 50%;
   }
   .orbit-card{
-    width:clamp(176px,58vw,236px);
-    height:clamp(99px,32.625vw,133px);
+    width:clamp(224px,72vw,270px);
+    height:clamp(126px,40.5vw,152px);
     border-radius:12px;
     transform:translate(-50%,-50%) rotateY(calc(var(--i) * (360deg / 16))) translateZ(clamp(150px,44vw,182px));
   }
@@ -97,7 +97,7 @@
 @media (max-width: 360px), (max-height: 680px) {
   .SectionHomepageHero .portfolio-hero-inner{min-height:560px;padding-top:118px;padding-bottom:10px}
   .orbit-ring-wrap{height:min(42svh,320px);min-height:245px}
-  .orbit-card{width:clamp(158px,54vw,196px);height:clamp(89px,30.375vw,110px);transform:translate(-50%,-50%) rotateY(calc(var(--i) * (360deg / 16))) translateZ(clamp(132px,41vw,156px))}
+  .orbit-card{width:clamp(218px,72vw,242px);height:clamp(123px,40.5vw,136px);transform:translate(-50%,-50%) rotateY(calc(var(--i) * (360deg / 16))) translateZ(clamp(132px,41vw,156px))}
   .orbit-controls{margin-top:4px}.orbit-arrow{width:40px;height:40px}
   .portfolio-ring-caption{margin-top:8px;padding-block:8px 10px}
 }
@@ -367,9 +367,6 @@
 .SectionHomepageHero p.portfolio-title-caption {
   animation: portfolio-fade-up 0.9s 0.24s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
-.orbit-stage {
-  animation: portfolio-fade-up 1s 0.36s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
 @keyframes portfolio-fade-up {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -579,6 +576,60 @@
   }
 }
 
+/* Shared desktop carousel: one complete main card with adjacent previews. */
+@media (min-width:701px){
+  .orbit-ring{transform:none!important;touch-action:pan-y}
+  .orbit-card{width:min(56vw,760px);height:auto;aspect-ratio:16/9;border-radius:18px;opacity:0;pointer-events:none;transform:translate(-50%,-50%) scale(.94);transition:opacity .32s ease,transform .48s cubic-bezier(.22,1,.36,1)}
+  .orbit-card.is-active{z-index:3;opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+  .orbit-card.is-prev{z-index:2;opacity:.5;transform:translate(-145%,-50%) scale(.7)}
+  .orbit-card.is-next{z-index:2;opacity:.5;transform:translate(45%,-50%) scale(.7)}
+}
+
+/* Opening sequence: rotate a separate 3D layer, then expand its front card into place. */
+.orbit-ring{opacity:1}
+.orbit-stage.is-intro .orbit-ring{opacity:0;transition:none}
+.orbit-intro-ring{
+  position:absolute;
+  inset:0;
+  z-index:5;
+  opacity:1;
+  pointer-events:none;
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.orbit-intro-ring .orbit-card{
+  z-index:auto;
+  width:clamp(110px,18vw,270px);
+  height:auto;
+  aspect-ratio:16/9;
+  opacity:1;
+  pointer-events:none;
+  backface-visibility:hidden;
+  transform:translate(-50%,-50%) rotateY(calc(var(--i) * (360deg / 16))) translateZ(clamp(220px,46vw,720px));
+  transition:none;
+}
+.orbit-intro-ring.is-clearing .orbit-card{
+  opacity:0;
+  filter:blur(3px);
+  transition:opacity .24s ease,filter .28s ease;
+}
+.orbit-transition-card{
+  position:fixed;
+  z-index:20;
+  display:block;
+  overflow:hidden;
+  box-sizing:border-box;
+  pointer-events:none;
+  border:1px solid rgba(255,255,255,.46);
+  background:#6c55a5;
+  will-change:left,top,width,height;
+}
+.orbit-transition-card img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.orbit-stage.is-settling .orbit-card.is-prev,.orbit-stage.is-settling .orbit-card.is-next{opacity:0}
+.orbit-stage .orbit-controls,.orbit-stage .portfolio-ring-caption{transition:opacity .28s ease,transform .35s ease}
+.orbit-stage.is-intro .orbit-controls,.orbit-stage.is-intro .portfolio-ring-caption,
+.orbit-stage.is-settling .orbit-controls,.orbit-stage.is-settling .portfolio-ring-caption{opacity:0;pointer-events:none;transform:translateY(12px);transition:none}
+
 /* Final phone overrides must follow the glass navigation rules above. */
 @media (max-width:700px){
   #portfolio-navigation-frame{
@@ -587,9 +638,31 @@
     max-width:430px!important;
     height:54px!important;
   }
+  .SectionHomepageHero .portfolio-hero-inner{box-sizing:border-box;height:100svh;min-height:620px;padding:128px max(12px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))}
+  .orbit-stage{flex:1;width:100%;height:auto;min-height:0;justify-content:center}
+  .orbit-ring-wrap{flex:0 1 390px;width:100%;height:min(46svh,390px);min-height:280px;perspective:920px;perspective-origin:50% 50%}
+  .orbit-card{width:min(86vw,340px);height:auto;aspect-ratio:16/9;border-radius:14px;opacity:0;pointer-events:none;transform:translate(-50%,-50%) scale(.94);transition:opacity .32s ease,transform .42s cubic-bezier(.22,1,.36,1)}
+  .orbit-card.is-active{z-index:3;opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+  .orbit-card.is-prev{z-index:2;opacity:.55;transform:translate(-120%,-50%) scale(.78)}
+  .orbit-card.is-next{z-index:2;opacity:.55;transform:translate(20%,-50%) scale(.78)}
+  .orbit-controls{gap:14px;margin-top:8px}
+  .orbit-arrow{width:44px;height:44px;font-size:24px;touch-action:manipulation}
+  .orbit-progress{width:min(42vw,156px)}
+  .portfolio-ring-caption{box-sizing:border-box;width:auto;max-width:calc(100vw - 32px);margin-top:12px;padding:10px 20px 12px;border-radius:22px;font-size:clamp(16px,4.8vw,20px);line-height:1.35;white-space:normal;text-wrap:balance}
   .orbit-ring{touch-action:pan-y}
+  .orbit-intro-ring .orbit-card{
+    width:clamp(137px,36vw,160px);
+    transform:translate(-50%,-50%) rotateY(calc(var(--i) * (360deg / 16))) translateZ(clamp(360px,108vw,440px));
+  }
 }
 @media (max-width:360px),(max-height:680px){
+  .SectionHomepageHero .portfolio-hero-inner{min-height:560px;padding-top:118px;padding-bottom:10px}
+  .orbit-ring-wrap{height:min(42svh,320px);min-height:245px}
+  .orbit-card{width:min(86vw,286px);height:auto;aspect-ratio:16/9;transform:translate(-50%,-50%) scale(.94)}
+  .orbit-card.is-active{transform:translate(-50%,-50%) scale(1)}
+  .orbit-card.is-prev{transform:translate(-120%,-50%) scale(.78)}
+  .orbit-card.is-next{transform:translate(20%,-50%) scale(.78)}
+  .orbit-controls{margin-top:4px}.orbit-arrow{width:40px;height:40px}
   .portfolio-ring-caption{margin-top:4px!important;padding:7px 16px!important}
   .portfolio-ring-caption::after{display:none}
 }

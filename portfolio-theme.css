@@ -456,6 +456,67 @@ header div[class*="h-[1px]"] {
   .MainFooter .portfolio-footer-brand{box-sizing:border-box;max-width:100%;padding-inline:max(12px,env(safe-area-inset-left),env(safe-area-inset-right));font-size:clamp(44px,15vw,64px)}
 }
 
+/* Compact mobile profile: group related information and use the width. */
+@media (max-width:767px){
+  .portfolio-about{padding-top:62px;padding-bottom:72px}
+  .portfolio-about>.portfolio-about-meta{display:flex;align-items:center;padding:0 2px 14px!important;background:none!important;border:0!important;border-bottom:1px solid rgba(255,255,255,.22)!important;border-radius:0!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+  .portfolio-about>.portfolio-about-meta>span{padding:0!important;background:none!important;border:0!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+  .portfolio-about-intro{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0!important;
+    margin:28px 0 18px;
+    padding:18px!important;
+    border:1px solid rgba(255,255,255,.32);
+    border-radius:22px;
+    background:var(--mox-glass-surface)!important;
+    -webkit-backdrop-filter:var(--mox-glass-filter)!important;
+    backdrop-filter:var(--mox-glass-filter)!important;
+    box-shadow:var(--mox-glass-shadow)!important;
+  }
+  .portfolio-about-intro h2,.portfolio-about-intro p{padding:0!important;background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+  .portfolio-about-intro h2{font-size:clamp(50px,16vw,66px);line-height:1;margin-bottom:22px;padding-bottom:18px!important;border-bottom:1px solid rgba(255,255,255,.2)!important}
+  .portfolio-about-intro p{font-size:16px;line-height:1.72}
+  .portfolio-about-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0 0 38px}
+  .portfolio-about-stats>div{box-sizing:border-box;min-width:0;min-height:126px;padding:16px 10px!important}
+  .portfolio-about-stats dt{font-size:9px;letter-spacing:.04em;white-space:nowrap}
+  .portfolio-about-stats dd{margin-top:34px;font-size:clamp(25px,8vw,34px);line-height:1.05;white-space:normal}
+  .portfolio-about-focus{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .portfolio-about-focus>article{box-sizing:border-box;min-width:0;min-height:190px;padding:16px!important}
+  .portfolio-about-focus>article:last-child{grid-column:1/-1;min-height:150px}
+  .portfolio-about-focus h3{margin:38px 0 14px;font-size:15px}
+  .portfolio-about-focus p{font-size:16px;line-height:1.55}
+  .portfolio-about-process{gap:28px;padding:56px 0}
+  .portfolio-about-process>div{padding:18px!important}
+  .portfolio-about-process h3{font-size:42px}
+  .portfolio-about-process ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .portfolio-about-process li{display:block;box-sizing:border-box;min-width:0;min-height:156px;padding:16px!important;border:1px solid rgba(255,255,255,.16)!important}
+  .portfolio-about-process li span,.portfolio-about-process li strong,.portfolio-about-process li small{display:block}
+  .portfolio-about-process li strong{margin-top:30px;font-size:16px}
+  .portfolio-about-process li small{margin-top:8px;padding:0!important;font-size:12px;line-height:1.55}
+  .portfolio-about-collaboration{gap:12px;padding:18px!important}
+  .portfolio-about-collaboration>*{padding:0!important;background:none!important;border:0!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+  .portfolio-about-collaboration p{font-size:22px}
+}
+
+@media(max-width:350px){
+  .portfolio-about-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .portfolio-about-stats>div:last-child{grid-column:1/-1}
+  .portfolio-about-process ol{grid-template-columns:1fr}
+  .portfolio-about-process li{min-height:132px}
+}
+
+/* Keep all contact QR codes visible together on phones. */
+@media(max-width:767px){
+  .portfolio-contact-channels{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:start;max-width:100%}
+  .portfolio-contact-channel{box-sizing:border-box;width:auto;min-width:0;max-width:none;padding:8px!important;border-radius:14px!important}
+  .portfolio-contact-channel>div{width:100%;aspect-ratio:1;border-radius:9px}
+  .portfolio-contact-channel figcaption{display:block;min-width:0;padding:10px 0 2px!important;text-align:center;background:none!important;border:0!important;border-top:1px solid rgba(255,255,255,.2)!important;border-radius:0!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+  .portfolio-contact-channel figcaption span,.portfolio-contact-channel figcaption small{display:none}
+  .portfolio-contact-channel figcaption strong{display:block;font-size:12px;line-height:1.3;letter-spacing:.02em}
+  .portfolio-contact-channel figcaption em{display:block;margin-top:5px;font-size:8px;line-height:1.4;letter-spacing:0;white-space:normal;overflow-wrap:anywhere}
+}
+
 /* Portfolio names are longer than the original one-word carousel titles. */
 .SectionHomepageHero .portfolio-hero-controls {
   transform: translateY(64px);
