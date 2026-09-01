@@ -224,7 +224,7 @@
       nav::after{content:"";position:absolute;z-index:2;inset:1px;padding:1px;border-radius:inherit;background:linear-gradient(98deg,rgba(77,229,255,.88),rgba(255,255,255,.9) 28%,rgba(255,226,113,.78) 53%,rgba(255,91,213,.82) 76%,rgba(181,137,255,.72));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.72;pointer-events:none}
       button{position:relative;z-index:1;appearance:none;border:0;padding:8px 0;background:transparent;color:rgba(50,25,91,.78);font:600 clamp(30px,2.8vw,40px)/1 Arial,"PingFang SC",sans-serif;cursor:pointer;transition:color .2s ease,text-shadow .2s ease}
       button:hover,button:focus-visible,button:first-child{color:rgba(245,0,218,.96);text-shadow:0 0 14px rgba(255,255,255,.42),0 0 18px rgba(240,0,218,.24)}button:focus-visible{outline:2px solid rgba(255,255,255,.8);outline-offset:5px}
-      @media(max-width:700px){nav{justify-content:center;gap:24px;padding:0 12px}button{font-size:22px}}
+      @media(max-width:700px){nav{justify-content:center;gap:clamp(10px,5vw,24px);padding:0 10px}button{min-width:0;font-size:clamp(17px,5vw,22px)}}
     </style></head><body><nav aria-label="主导航">${labels.map((label, index) => `<button type="button" data-index="${index}">${label}</button>`).join("")}</nav><script>
       document.addEventListener('click',function(event){var button=event.target.closest('button');if(button)parent.postMessage({type:'portfolio-nav',index:Number(button.dataset.index)},'*')});
     <\/script></body></html>`;

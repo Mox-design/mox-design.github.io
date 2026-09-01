@@ -633,10 +633,13 @@
 /* Final phone overrides must follow the glass navigation rules above. */
 @media (max-width:700px){
   #portfolio-navigation-frame{
-    top:64px!important;
-    width:calc(100% - 24px)!important;
-    max-width:430px!important;
+    top:max(64px,calc(env(safe-area-inset-top) + 52px))!important;
+    right:auto!important;
+    left:12px!important;
+    width:calc(100vw - 24px)!important;
+    max-width:none!important;
     height:54px!important;
+    transform:none!important;
   }
   .SectionHomepageHero .portfolio-hero-inner{box-sizing:border-box;height:100svh;min-height:620px;padding:128px max(12px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))}
   .orbit-stage{flex:1;width:100%;height:auto;min-height:0;justify-content:center}

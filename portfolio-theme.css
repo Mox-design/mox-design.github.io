@@ -65,12 +65,13 @@ header a[title="Home"] {
   }
 
   #portfolio-navigation-frame {
-    top: 72px !important;
-    right: auto !important;
-    left: 50% !important;
-    width: 100% !important;
+    top: max(64px, calc(env(safe-area-inset-top) + 52px)) !important;
+    right: 12px !important;
+    left: 12px !important;
+    width: calc(100vw - 24px) !important;
+    max-width: none !important;
     height: 54px !important;
-    transform: translateX(-50%) !important;
+    transform: none !important;
   }
 
   .MainFooter .portfolio-footer-brand {
@@ -433,7 +434,7 @@ header div[class*="h-[1px]"] {
 @media (max-width: 767px) {
   html,body{width:100%;max-width:100%;overflow-x:clip}
   .portfolio-header-brand{left:max(18px,env(safe-area-inset-left))}
-  #portfolio-navigation-frame{box-sizing:border-box;width:calc(100% - 24px)!important;max-width:430px!important}
+  #portfolio-navigation-frame{box-sizing:border-box;right:auto!important;left:12px!important;width:calc(100vw - 24px)!important;max-width:none!important;transform:none!important}
   .portfolio-about,.portfolio-contact{
     padding-right:max(16px,env(safe-area-inset-right));
     padding-left:max(16px,env(safe-area-inset-left));
